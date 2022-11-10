@@ -20,7 +20,7 @@ export default function Weather() {
         </div>
       </form>
       <h1>London</h1>
-      <ul>
+      <ul className="current-description">
         <li> 00:03 Thursday 10th November</li>
         <li>Mostly Cloudy</li>
       </ul>
