@@ -24,7 +24,7 @@ export default function WeatherInfo(props) {
             ></img>
           </div>
           <div className="col-6 float-left">
-            <WeatherTemperature celsius={props.data.temperature.current} />
+            <WeatherTemperature celsius={props.data.temperature} />
           </div>
           <ul>
             <li>Feels like: {Math.round(props.data.feelsLike)}</li>
