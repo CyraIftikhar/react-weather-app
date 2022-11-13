@@ -33,3 +33,9 @@ ul {
 .Weather .unit {
   font-size: 16px;
 }
+
+.Loading {
+  display: block;
+  margin: auto 0;
+  text-align: center;
+}
