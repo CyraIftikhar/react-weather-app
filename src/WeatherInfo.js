@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import FormattedDate from "./FormattedDate";
 import WeatherTemperature from "./WeatherTemperature";
+import "./WeatherInfo.css";
 
 export default function WeatherInfo(props) {
   const [unit, setUnit] = useState("celsius");
@@ -13,40 +14,55 @@ export default function WeatherInfo(props) {
           {" "}
           <FormattedDate date={props.data.date} />
         </li>
-        <li className="text-capitalize">{props.data.description}</li>
       </ul>
-      <div className="row mt-3">
-        <div className="col-6">
-          <div className="clearfix">
-            <img
-              src={props.data.iconUrl}
-              alt={props.data.description}
-              width="50px"
-              className="float-left"
-            ></img>
-          </div>
-          <div className="col-6 float-left">
+      <div className="container">
+        <div className="row mt-3">
+          <div className="col-4 float-left">
             <WeatherTemperature
               unit={unit}
               setUnit={setUnit}
               celsius={props.data.temperature}
             />
           </div>
-          {unit === "celsius" ? (
-            <ul>
-              <li>Feels like: {Math.round(props.data.feelsLike)}</li>
-              <li>Humidity: {props.data.humidity}%</li>
-              <li>Wind: {Math.round(props.data.wind)} mph</li>
-            </ul>
-          ) : (
-            <ul>
-              <li>
-                Feels like: {Math.round((props.data.feelsLike * 9) / 5 + 32)}
-              </li>
-              <li>Humidity: {props.data.humidity}%</li>
-              <li>Wind: {Math.round(props.data.wind)} mph</li>
-            </ul>
-          )}
+          <div className="col-4">
+            <div className="clearfix">
+              <div className="text-capitalize text-center">
+                {props.data.description}
+              </div>
+              <img
+                src={props.data.iconUrl}
+                alt={props.data.description}
+                width="100"
+                height="150"
+                className="float-left current-icon"
+              ></img>
+            </div>
+          </div>
+
+          <div className="col-4">
+            {unit === "celsius" ? (
+              <ul className="conditions">
+                <li>
+                  Feels like:{" "}
+                  <strong>{Math.round(props.data.feelsLike)}°C</strong>
+                </li>
+                <li>
+                  Humidity: <strong>{props.data.humidity}%</strong>
+                </li>
+                <li>
+                  Wind: <strong>{Math.round(props.data.wind)} mph</strong>
+                </li>
+              </ul>
+            ) : (
+              <ul>
+                <li>
+                  Feels like: {Math.round((props.data.feelsLike * 9) / 5 + 32)}
+                </li>
+                <li>Humidity: {props.data.humidity}%</li>
+                <li>Wind: {Math.round(props.data.wind)} mph</li>
+              </ul>
+            )}
+          </div>
         </div>
       </div>
     </div>

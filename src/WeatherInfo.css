@@ -1,0 +1,10 @@
+.current-icon {
+  text-align: center;
+  display: block;
+  position: relative;
+  right: -25px;
+}
+
+.conditions {
+  list-style: none;
+}
