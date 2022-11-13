@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function WeatherForecastDay() {
+export default function WeatherForecastDay(props) {
   function maxTemperature() {
     let temperature = Math.round(props.data.temperature.maximum);
     return `${temperature}°`;
@@ -12,7 +12,7 @@ export default function WeatherForecastDay() {
   }
 
   function day() {
-    let date = newDate(props.data.time * 1000);
+    let date = new Date(props.data.time * 1000);
     let day = date.getDay();
 
     let days = [

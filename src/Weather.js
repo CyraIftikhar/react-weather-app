@@ -3,6 +3,7 @@ import WeatherInfo from "./WeatherInfo";
 import WeatherForecast from "./WeatherForecast.js";
 import axios from "axios";
 import "./WeatherForecast.css";
+import "./Weather.css";
 
 export default function Weather(props) {
   const [weatherData, setWeatherData] = useState({ ready: false });
@@ -19,6 +20,7 @@ export default function Weather(props) {
       humidity: response.data.temperature.humidity,
       feelsLike: response.data.temperature.feels_like,
       description: response.data.condition.description,
+      icon: response.data.condition.icon_url,
       iconUrl: `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.condition.icon}.png`,
     });
   }
