@@ -17,7 +17,7 @@ export default function WeatherInfo(props) {
       </ul>
       <div className="container">
         <div className="row mt-3">
-          <div className="col-4 float-left">
+          <div className="col-4 float-right">
             <WeatherTemperature
               unit={unit}
               setUnit={setUnit}
@@ -32,8 +32,6 @@ export default function WeatherInfo(props) {
               <img
                 src={props.data.iconUrl}
                 alt={props.data.description}
-                width="100"
-                height="150"
                 className="float-left current-icon"
               ></img>
             </div>

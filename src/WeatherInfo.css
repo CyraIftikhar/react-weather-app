@@ -3,6 +3,7 @@
   display: block;
   position: relative;
   right: -25px;
+  width: 100px;
 }
 
 .conditions {

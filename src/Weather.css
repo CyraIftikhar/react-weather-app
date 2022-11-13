@@ -22,8 +22,9 @@ ul {
 
 .Weather .temperature {
   font-weight: bold;
-  font-size: 64px;
+  font-size: 70px;
   line-height: 64px;
+  text-align: center;
 }
 
 .Weather img {
