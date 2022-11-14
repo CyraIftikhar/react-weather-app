@@ -54,10 +54,18 @@ export default function WeatherInfo(props) {
             ) : (
               <ul>
                 <li>
-                  Feels like: {Math.round((props.data.feelsLike * 9) / 5 + 32)}
+                  Feels like:{" "}
+                  <strong>
+                    {Math.round((props.data.feelsLike * 9) / 5 + 32)}
+                    °F
+                  </strong>
                 </li>
-                <li>Humidity: {props.data.humidity}%</li>
-                <li>Wind: {Math.round(props.data.wind)} mph</li>
+                <li>
+                  Humidity: <strong>{props.data.humidity}%</strong>
+                </li>
+                <li>
+                  Wind: <strong>{Math.round(props.data.wind)} mph</strong>
+                </li>
               </ul>
             )}
           </div>
