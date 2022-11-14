@@ -52,7 +52,7 @@ export default function WeatherInfo(props) {
                 </li>
               </ul>
             ) : (
-              <ul>
+              <ul className="conditions">
                 <li>
                   Feels like:{" "}
                   <strong>

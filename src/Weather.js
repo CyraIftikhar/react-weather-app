@@ -42,6 +42,21 @@ export default function Weather(props) {
     setCity(event.target.value);
   }
 
+  function searchLocation(position) {
+    let lat = position.coords.latitude;
+    let lon = position.coords.longitude;
+    let units = "metric";
+    let apiKey = "08o0558e3e9fc6bt6ff6f508603a7424";
+    let apiEndpoint = "https://api.shecodes.io/weather/v1/forecast";
+    let apiUrl = `${apiEndpoint}?lon=${lon}&lat=${lat}&key=${apiKey}&units=${units}`;
+    axios.get(apiUrl).then(handleResponse);
+  }
+
+  function getCurrentLocation(event) {
+    event.preventDefault();
+    navigator.geolocation.getCurrentPosition(searchLocation);
+  }
+
   if (weatherData.ready) {
     return (
       <div className="Weather">
@@ -55,6 +70,7 @@ export default function Weather(props) {
                 autoFocus="on"
                 onChange={handleCityChange}
               />
+              <button onClick={getCurrentLocation}>Current Location</button>
             </div>
 
             <div className="col-3">
@@ -71,7 +87,7 @@ export default function Weather(props) {
       </div>
     );
   } else {
-    search();
+    navigator.geolocation.getCurrentPosition(searchLocation);
     return (
       <div className="Loading">
         <div>Loading</div>
