@@ -47,7 +47,7 @@ export default function Weather(props) {
     let lon = position.coords.longitude;
     let units = "metric";
     let apiKey = "08o0558e3e9fc6bt6ff6f508603a7424";
-    let apiEndpoint = "https://api.shecodes.io/weather/v1/forecast";
+    let apiEndpoint = "https://api.shecodes.io/weather/v1/current";
     let apiUrl = `${apiEndpoint}?lon=${lon}&lat=${lat}&key=${apiKey}&units=${units}`;
     axios.get(apiUrl).then(handleResponse);
   }
