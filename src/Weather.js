@@ -62,7 +62,7 @@ export default function Weather(props) {
       <div className="Weather">
         <form onSubmit={handleSubmit}>
           <div className="row mt-3">
-            <div className="col-9">
+            <div className="col-8">
               <input
                 type="search"
                 placeholder="Enter a city..."
@@ -70,8 +70,13 @@ export default function Weather(props) {
                 autoFocus="on"
                 onChange={handleCityChange}
               />
-              <button onClick={getCurrentLocation}>Current Location</button>
             </div>
+            <button
+              onClick={getCurrentLocation}
+              className="col-1 btn btn-light"
+            >
+              <i class="fa-sharp fa-solid fa-location-dot"></i>
+            </button>
 
             <div className="col-3">
               <input

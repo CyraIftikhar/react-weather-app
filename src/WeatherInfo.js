@@ -32,7 +32,7 @@ export default function WeatherInfo(props) {
               <img
                 src={props.data.iconUrl}
                 alt={props.data.description}
-                className="img-fluid float-left current-icon"
+                className="img-fluid current-icon"
               ></img>
             </div>
           </div>
