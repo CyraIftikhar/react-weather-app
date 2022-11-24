@@ -1,3 +1,7 @@
+.WeatherForecast img {
+  height: 64px;
+}
+
 .WeatherForecast {
   text-align: center;
 }
