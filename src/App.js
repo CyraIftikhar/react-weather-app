@@ -1,22 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import "./App.css";
 import Weather from "./Weather.js";
 
 export default function App() {
-  const [background, setBackground] = useState("");
-
-  useEffect(() => {
-    const now = new Date();
-    console.log(now);
-    if (now.getHours() >= 18 || now.getHours() <= 6) {
-      setBackground("bg-dark");
-    } else {
-      setBackground("bg-light");
-    }
-  }, []);
-
   return (
-    <div className={`App ${background}`}>
+    <div className="App">
       <div className="container">
         <Weather defaultCity="London" />
         <footer className="text-center">

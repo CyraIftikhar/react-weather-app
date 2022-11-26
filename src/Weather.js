@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import WeatherInfo from "./WeatherInfo";
 import WeatherForecast from "./WeatherForecast.js";
 import axios from "axios";
@@ -57,9 +57,21 @@ export default function Weather(props) {
     navigator.geolocation.getCurrentPosition(searchLocation);
   }
 
+  const [background, setBackground] = useState("");
+
+  useEffect(() => {
+    const now = new Date();
+    console.log(now);
+    if (now.getHours() >= 18 || now.getHours() <= 6) {
+      setBackground("bg-dark");
+    } else {
+      setBackground("bg-light");
+    }
+  }, []);
+
   if (weatherData.ready) {
     return (
-      <div className="Weather">
+      <div className={`Weather ${background}`}>
         <form onSubmit={handleSubmit}>
           <div className="row mt-3">
             <div className="col-8">
